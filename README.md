@@ -14,9 +14,7 @@ https://github.com/Swetha-Varma-K/reachinbox-assignment
 
 ### Live Demo
 
-> To be added after deployment.
-
-**Live Demo:** `PASTE_LIVE_DEMO_URL_HERE`
+https://reachinbox-frontend-57ny.onrender.com/
 
 ### Demo Video
 
