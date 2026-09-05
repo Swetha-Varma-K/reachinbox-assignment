@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  googleId  String   @unique
+  name      String
+  email     String   @unique
+  avatar    String?
+  createdAt DateTime @default(now())
+
+  senders   Sender[]
+  emails    Email[]
+  slack     SlackConnection?
+}
+
+model Sender {
+  id              Int      @id @default(autoincrement())
+  userId          Int
+  email           String
+  etherealUser    String
+  etherealPassword String
+  hourlyLimit      Int      @default(100)
+  createdAt       DateTime @default(now())
+
+  user            User     @relation(fields: [userId], references: [id])
+  emails          Email[]
+
+  @@index([userId])
+}
+
+model Email {
+  id             Int       @id @default(autoincrement())
+  userId         Int
+  senderId       Int
+  recipient      String
+  subject        String
+  body           String
+  scheduledAt    DateTime
+  sentAt         DateTime?
+  status         String    @default("SCHEDULED")
+  jobId          String?   @unique
+  idempotencyKey String    @unique
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  user           User      @relation(fields: [userId], references: [id])
+  sender         Sender    @relation(fields: [senderId], references: [id])
+
+  @@index([userId])
+  @@index([status])
+  @@index([scheduledAt])
+}
+
+model SlackConnection {
+  id          Int      @id @default(autoincrement())
+  userId      Int      @unique
+  accessToken String
+  teamId      String?
+  webhookUrl  String?
+  createdAt   DateTime @default(now())
+
+  user        User      @relation(fields: [userId], references: [id])
+}
