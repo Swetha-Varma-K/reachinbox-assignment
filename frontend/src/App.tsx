@@ -10,7 +10,7 @@ type Email = {
   status: string;
 };
 
-const API = "http://localhost:5000";
+const API = "https://reachinbox-assignment-vvq5.onrender.com";
 
 function App() {
   const [activeTab, setActiveTab] = useState<"scheduled" | "sent">(
