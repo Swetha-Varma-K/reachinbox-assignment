@@ -15,6 +15,7 @@ import { BullMQAdapter } from "@bull-board/api/bullMQAdapter";
 import { ExpressAdapter } from "@bull-board/express";
 
 const app = express();
+app.set("trust proxy", 1);
 
 const PORT = 5000;
 
