@@ -196,7 +196,30 @@ setHourlyLimit(100);
   }
 }
 
-  const emails = activeTab === "scheduled" ? scheduled : sent;
+    const emails = activeTab === "scheduled" ? scheduled : sent;
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="rounded-xl border bg-white p-8 shadow-sm text-center">
+          <h1 className="text-3xl font-bold text-gray-900">
+            ReachInbox
+          </h1>
+
+          <p className="mt-2 text-gray-500">
+            Email scheduling dashboard
+          </p>
+
+          <a
+            href={`${API}/auth/google`}
+            className="mt-6 inline-block rounded-lg bg-blue-600 px-6 py-3 font-medium text-white hover:bg-blue-700"
+          >
+            Login with Google
+          </a>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
