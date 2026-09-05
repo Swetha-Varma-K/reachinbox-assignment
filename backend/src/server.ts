@@ -485,7 +485,7 @@ app.get(
     failureRedirect: "/auth/google/failure",
   }),
   (req, res) => {
-    res.redirect("http://localhost:5173");
+    res.redirect("https://reachinbox-frontend-57ny.onrender.com");
   }
 );
 
@@ -524,7 +524,7 @@ app.get("/auth/logout", (req, res) => {
     }
 
     req.session.destroy(() => {
-      res.redirect("http://localhost:5173");
+      res.redirect("https://reachinbox-frontend-57ny.onrender.com");
     });
   });
 });
