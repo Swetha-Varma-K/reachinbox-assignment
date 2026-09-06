@@ -18,9 +18,7 @@ https://reachinbox-frontend-57ny.onrender.com/
 
 ### Demo Video
 
-> Short demonstration video covering the assignment requirements.
-
-**Demo Video:** `PASTE_DEMO_VIDEO_URL_HERE`
+https://drive.google.com/file/d/1__yCrV0Boa4aH275qy-mnD44lvcD6zyv/view?usp=sharing
 
 ---
 
